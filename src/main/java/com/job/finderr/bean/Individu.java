@@ -22,6 +22,7 @@ public class Individu implements Serializable {
 
     }
 
+
     public Individu(Long id,String reference, String nom, String prenom, String email, String telephone) {
         this.id=id;
         this.reference = reference;

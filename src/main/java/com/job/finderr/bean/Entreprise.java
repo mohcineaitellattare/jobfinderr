@@ -1,10 +1,8 @@
 package com.job.finderr.bean;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -16,6 +14,8 @@ public class Entreprise implements Serializable {
     private String email;
     private String telephone;
     private String adress;
+    @OneToMany
+    private List<Anonce> anonces;
 
     public Entreprise() {
     }
@@ -28,6 +28,13 @@ public class Entreprise implements Serializable {
     }
 
 
+    public List<Anonce> getAnonces() {
+        return anonces;
+    }
+
+    public void setAnonces(List<Anonce> anonces) {
+        this.anonces = anonces;
+    }
 
     public Long getId() {
         return id;
@@ -77,6 +84,7 @@ public class Entreprise implements Serializable {
                 ", email='" + email + '\'' +
                 ", telephone='" + telephone + '\'' +
                 ", adress='" + adress + '\'' +
+                ", anonces=" + anonces +
                 '}';
     }
 
