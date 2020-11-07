@@ -9,5 +9,6 @@ import org.springframework.stereotype.Repository;
 public interface AnonceDao extends JpaRepository<Anonce,Long> {
 
     public Anonce findByEntreprise(Entreprise entreprise);
+    public Anonce findByCode(String code);
     
 }

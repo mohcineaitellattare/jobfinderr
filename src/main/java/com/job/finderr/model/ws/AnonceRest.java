@@ -26,7 +26,12 @@ public class AnonceRest {
     }
 
     @PostMapping("/")
-    public void save(@RequestBody Anonce anonce) {
-        anonceService.save(anonce);
+    public int save(@RequestBody Anonce anonce) {
+        return anonceService.save(anonce);
     }
+
+    @PostMapping("/applytoannonce/annonceCode/{annonceCode}/individuReference/{individuReference}")
+    public int applyToAnnonce(@PathVariable String annonceCode,@PathVariable String individuReference){
+        return anonceService.applyToAnnonce(annonceCode,individuReference);
+    };
 }

@@ -9,12 +9,13 @@ public class Anonce {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String  code;
     private String niveau;
     private String experiance;
     private String information;
-    @ManyToOne
+    @OneToOne
     private Entreprise entreprise;
-    @ManyToMany
+    @OneToMany
     private List<Individu> IndividuInterese;
 
     public Anonce() {
@@ -28,6 +29,13 @@ public class Anonce {
         this.id = id;
     }
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
 
     public String getNiveau() {
         return niveau;

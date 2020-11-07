@@ -6,9 +6,11 @@ import com.job.finderr.model.service.IndividuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
 public class IndividuServiceImpl implements IndividuService {
     @Autowired
     private IndividuDao individuDao;
@@ -19,8 +21,14 @@ public class IndividuServiceImpl implements IndividuService {
     }
 
     @Override
-    public void save(Individu individu) {
-         individuDao.save(individu);
+    public int save(Individu individu) {
+         Individu individu1=individuDao.findByReference(individu.getReference());
+         if (individu1!=null){
+             System.out.println("there is a problem in save individu");
+             return -1;
+         }
+        individuDao.save(individu);
+        return 1;
     }
 
     @Override

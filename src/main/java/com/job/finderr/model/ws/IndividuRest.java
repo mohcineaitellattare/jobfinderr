@@ -17,8 +17,9 @@ public class IndividuRest {
     }
 
     @PostMapping("/")
-    public void save(@RequestBody Individu individu) {
-        individuService.save(individu);
+    public int save(@RequestBody Individu individu) {
+
+        return individuService.save(individu);
     }
 
     @GetMapping("/")

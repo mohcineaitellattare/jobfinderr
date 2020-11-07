@@ -1,10 +1,8 @@
 package com.job.finderr.bean;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -17,6 +15,9 @@ public class Individu implements Serializable {
     private String prenom;
     private String email;
     private String telephone;
+    @OneToMany
+    private List<Anonce> anonces;
+
 
     public Individu() {
 
@@ -78,6 +79,14 @@ public class Individu implements Serializable {
 
     public void setTelephone(String telephone) {
         this.telephone = telephone;
+    }
+
+    public List<Anonce> getAnonces() {
+        return anonces;
+    }
+
+    public void setAnonces(List<Anonce> anonces) {
+        this.anonces = anonces;
     }
 
     @Override

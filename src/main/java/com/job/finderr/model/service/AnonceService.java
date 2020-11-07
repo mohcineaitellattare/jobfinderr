@@ -9,4 +9,5 @@ public interface AnonceService {
    public Anonce findByEntreprise(Entreprise entreprise);
    public List<Anonce> findAll();
    public int save(Anonce anonce);
+   public int applyToAnnonce(String annonceCode,String individuReference);
 }
