@@ -8,5 +8,5 @@ import java.util.List;
 public interface EntrepriseService {
    public Entreprise findByNom(String nom);
    public List<Entreprise> findAll();
-   public void save(Entreprise entreprise);
+   public int save(Entreprise entreprise);
 }

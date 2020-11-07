@@ -25,8 +25,14 @@ public class EntrepriseServiceImpl implements EntrepriseService {
     }
 
     @Override
-    public void save(Entreprise entreprise) {
+    public int save(Entreprise entreprise) {
+        Entreprise entreprise1=entrepriseDao.findByNom(entreprise.getNom());
+        if(entreprise1!=null){
+            System.out.println("problen in save entreprise");
+            return -1;
+        }
             entrepriseDao.save(entreprise);
+        return 1;
     }
 
     @Override

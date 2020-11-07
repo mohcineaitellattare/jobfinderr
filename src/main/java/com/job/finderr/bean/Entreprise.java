@@ -1,5 +1,8 @@
 package com.job.finderr.bean;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSetter;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -28,10 +31,12 @@ public class Entreprise implements Serializable {
     }
 
 
+    @JsonIgnore
     public List<Anonce> getAnonces() {
         return anonces;
     }
 
+    @JsonSetter
     public void setAnonces(List<Anonce> anonces) {
         this.anonces = anonces;
     }
