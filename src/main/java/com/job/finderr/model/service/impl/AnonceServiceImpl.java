@@ -37,7 +37,7 @@ public class AnonceServiceImpl implements AnonceService {
         Anonce anonce1=anonceDao.findByCode(anonce.getCode());
         Entreprise entreprise=entrepriseService.findByNom(anonce.getEntreprise().getNom());
         if(anonce1!=null){
-            System.out.println("here i am");
+            System.out.println("here i am||ther is a prublem in save anonce");
             return -1;
         }else if (entreprise==null){
             System.out.println("iam here");
